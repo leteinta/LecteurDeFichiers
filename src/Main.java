@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.File;
     public class Main {
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
@@ -36,7 +37,8 @@ import java.util.Scanner;
             scanner.nextLine();
 
             // Comparateur tailles de fichiers
-            if (ComparateurFichiers.comparerTailleFichiers(cheminFichierTexte, cheminFichierCSV)) {
+            ComparateurFichiers comparateur = new ComparateurFichiers(new File(cheminFichierTexte), new File(cheminFichierCSV));
+            if (comparateur.comparerTailleFichiers()) {
                 System.out.println("Les fichiers ont la même taille.");
             } else {
                 System.out.println("Les fichiers ont des tailles différentes.");
